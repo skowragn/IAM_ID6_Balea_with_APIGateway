@@ -10,7 +10,9 @@ The IAM POC solution with:
     
 3) API Gateway/BFFs (with Ocelot and/or YARP usage)
    https://tanzu.vmware.com/developer/blog/build-api-gateway-csharp-yarp/
+   
    https://microsoft.github.io/reverse-proxy/
+   
    https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-api-gateways-with-ocelot
 
 # Getting Started
