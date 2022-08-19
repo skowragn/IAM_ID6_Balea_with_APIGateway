@@ -1,12 +1,12 @@
 ﻿using System.Text.Json;
-using Assets.Management.Common.Interfaces;
-using Assets.Management.Web.Configuration;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Assets.Management.Common.Interfaces;
+using Assets.Management.Web.Configuration;
 
-namespace Assets.Management.Web.Dependency.Injection;
-    public class PatientsController : Controller
+namespace Assets.Management.Web.Controllers;
+public class PatientsController : Controller
     {
         private readonly IPatientsServiceRepository _patientsServiceRepository;
         private readonly IConfiguration _configuration;
