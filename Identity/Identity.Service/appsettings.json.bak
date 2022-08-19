@@ -1,0 +1,12 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "sqlConnection": "server=localhost\\SQLEXPRESS; database=WE_Identity_Service_DB; Integrated Security=true"
+  },
+  "AllowedHosts": "*"
+}

@@ -1,0 +1,32 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5003"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gatewayocelot/patients",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/patients",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7129
+        }
+      ],
+
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      },
+
+      //Once we request this UpstreamPathTemplate (/gateway/articles) more 
+      //than 3 times within 10 seconds, the API Gateway is going to return a Too Many Request (HTTP status 429).
+      "RateLimitOptions": {
+        "EnableRateLimiting": true,
+        "Period": "10s",
+        "PeriodTimespan": 10,
+        "Limit": 3
+      }
+    }
+  ]
+}

@@ -1,1 +1,4 @@
-# IAM_ID6_Balea_with_APIGateway
+# Introduction 
+The POC for the long-term IAM solution with API Gateway (Balea, Ocelot and YARP).
+
+# Getting Started
