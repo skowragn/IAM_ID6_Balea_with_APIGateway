@@ -10,6 +10,7 @@ using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
+using Identity.Service.Extensions;
 
 namespace Assets.Core.Identity.Service.Controllers
 {

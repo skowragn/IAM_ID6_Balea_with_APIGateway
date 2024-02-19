@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Assets.Core.Identity.Service.Domain.Entities;
+using Identity.Service.Extensions;
 
 namespace Assets.Core.Identity.Service.Controllers
 {

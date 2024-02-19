@@ -23,6 +23,8 @@ namespace Assets.Core.Identity.Service.Infrastructure.Context
         public DbSet<DeviceFlowCodes> DeviceFlowCodes { get; set; }
         public DbSet<Key> Keys { get; set; }
         public DbSet<IdentityProvider> IdentityProviders { get; set; }
+        public DbSet<ServerSideSession> ServerSideSessions { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DbSet<PushedAuthorizationRequest> PushedAuthorizationRequests { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -14,10 +14,11 @@ using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
 using Assets.Core.Identity.Service.Domain.Entities;
+using Identity.Service.Extensions;
 
 namespace Assets.Core.Identity.Service.Controllers;
 
-    [SecurityHeaders]
+[SecurityHeaders]
     [AllowAnonymous]
     public class AccountController : Controller
     {

@@ -1,12 +1,12 @@
 // Copyright (c) Duende Software. All rights reserved.
 // See LICENSE in the project root for license information.
 
-
-using System;
+using Assets.Core.Identity.Service.ViewModel.UI;
 using Duende.IdentityServer.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Assets.Core.Identity.Service.ViewModel.UI
+namespace Identity.Service.Extensions
 {
     public static class Extensions
     {
@@ -24,8 +24,18 @@ namespace Assets.Core.Identity.Service.ViewModel.UI
         {
             controller.HttpContext.Response.StatusCode = 200;
             controller.HttpContext.Response.Headers["Location"] = "";
-            
+
             return controller.View(viewName, new RedirectViewModel { RedirectUrl = redirectUri });
+        }
+
+        /// <summary>
+        /// Determines if the authentication scheme support signout.
+        /// </summary>
+        internal static async Task<bool> GetSchemeSupportsSignOutAsync(this HttpContext context, string scheme)
+        {
+            var provider = context.RequestServices.GetRequiredService<IAuthenticationHandlerProvider>();
+            var handler = await provider.GetHandlerAsync(context, scheme);
+            return handler is IAuthenticationSignOutHandler;
         }
     }
 }
