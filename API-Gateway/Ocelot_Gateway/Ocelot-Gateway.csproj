@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ocelot" Version="23.0.0" />
-    <PackageReference Include="Ocelot.Cache.CacheManager" Version="23.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Ocelot" Version="23.3.4" />
+    <PackageReference Include="Ocelot.Cache.CacheManager" Version="23.3.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
   </ItemGroup>
 
 </Project>

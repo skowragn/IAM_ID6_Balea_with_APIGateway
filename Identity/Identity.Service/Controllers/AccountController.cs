@@ -106,7 +106,7 @@ namespace Assets.Core.Identity.Service.Controllers;
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync(model.Username);
-                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName, clientId: context?.Client.ClientId));
+                    await _events.RaiseAsync(new UserLoginSuccessEvent(user?.UserName, user?.Id, user?.UserName, clientId: context?.Client.ClientId));
 
                     if (context != null)
                     {
@@ -191,7 +191,7 @@ namespace Assets.Core.Identity.Service.Controllers;
                 // build a return URL so the upstream provider will redirect back
                 // to us after the user has logged out. this allows us to then
                 // complete our single sign-out processing.
-                string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
+                string? url = Url.Action("Logout", new { logoutId = vm.LogoutId });
 
                 // this triggers a redirect to the external provider for sign-out
                 return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
@@ -259,7 +259,7 @@ namespace Assets.Core.Identity.Service.Controllers;
 
                 if (!local)
                 {
-                    vm.ExternalProviders = new[] { new ExternalProvider { AuthenticationScheme = context.IdP } };
+                    vm.ExternalProviders = new[] { new ExternalProvider { AuthenticationScheme = context?.IdP } };
                 }
 
                 return vm;
@@ -312,7 +312,7 @@ namespace Assets.Core.Identity.Service.Controllers;
         {
             var vm = new LogoutViewModel { LogoutId = logoutId, ShowLogoutPrompt = AccountOptions.ShowLogoutPrompt };
 
-            if (User?.Identity.IsAuthenticated != true)
+            if (User?.Identity?.IsAuthenticated != true)
             {
                 // if the user is not authenticated, then just show logged out page
                 vm.ShowLogoutPrompt = false;
